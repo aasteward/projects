@@ -7,23 +7,23 @@ class AccountInfo
     @categories = {}
   end
 
-  def build_report(object, account) 
+  def build_report(account) 
     CSV.foreach("accounts.csv", {headers: true, return_headers: false}) do |row|
       if row["Account"].chomp == account
-        outflow = Outflow.new
+        outflow = Flow.new
         outflow.set_value(row["Outflow"])
-        inflow = Inflow.new
+        inflow = Flow.new
         inflow.set_value(row["Inflow"])
         
         transaction_amount = inflow.to_f - outflow.to_f
-        object.update_tally(transaction_amount)
+        self.update_tally(transaction_amount)
         category = row["Category"].chomp
 
-        if !object.already_has_category(category)
-            object.add_category(category)
+        if !self.already_has_category(category)
+            self.add_category(category)
         end
 
-        object.category(category).add_transaction(transaction_amount)
+        self.category(category).add_transaction(transaction_amount)
         end
     end
   end
@@ -36,6 +36,7 @@ class AccountInfo
     @tally += amount
   end
 
+# CONSTRUCTS DEFAULT VALUES FOR CATEGORIES
   def add_category(category_name)
     @categories[category_name] = Category.new
     @categories[category_name].set_up_initial_values
@@ -67,6 +68,7 @@ class AccountInfo
   end
 end
 
+# CONSTRUCTION OF CATEGORY HASH
 class Category
   def set_up_initial_values
     @tally = 0.00
@@ -82,6 +84,7 @@ class Category
   	return @average_transaction_cost
   end
 
+# RECORD OF TRANSACTIONS PER CATEGORY
   def add_transaction(amount)
     @tally += amount
     @num_transactions += 1
@@ -97,17 +100,8 @@ class Category
   end
 end
 
-class Outflow
-  def set_value(number_string_from_csv)
-    @value = number_string_from_csv.gsub(/[,\$]/, "").to_f.round(2)
-  end
-
-  def to_f
-    return @value
-  end
-end
-
-class Inflow
+# INFLOW/OUTFLOW DATA CONVERTED FROM STRING
+class Flow
   def set_value(number_string_from_csv)
     @value = number_string_from_csv.gsub(/[,\$]/, "").to_f.round(2)
   end

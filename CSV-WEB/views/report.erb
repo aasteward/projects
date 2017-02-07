@@ -1,8 +1,10 @@
 <br>
+<!-- BUILDS DISPLAY FOR SINGLE ACCOUNT -->
 <h1><%= @name %></h1> 
 <p>$<%= @account.pretty_tally %></p>
 <!-- BLOCK OF TRANSACITON INFORMATION BOXES -->
 <div <%= if(session[:message] == "false") then ('hidden') end %> >
+<!-- TRANSACITON BOXES HIDDEN IF NOT LOGGED IN -->
 <hr>
   <form action="/submit" method="post">
     <input type="hidden" name="account" value="<%= @name %>">
