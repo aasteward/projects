@@ -53,19 +53,23 @@ def winner(p1weapon, p2weapon)
 	declare(result)
 end
 
+# MAKES ANNOUNCEMENT OF WINNER
 def declare(result)
 	puts result
 	update(result)
 end
 
+# DETERMINES IF PLAYER 1 WINS
 def p1win(p1weapon, p2weapon)
 	return ((p1weapon == 'rock' and p2weapon == 'scissors') or (p1weapon == 'paper' and p2weapon == 'rock') or (p1weapon == 'scissors' and p2weapon == 'paper'))
 end
 
+# DETERMINES IF PLAYER 2 WINS
 def p2win(p1weapon, p2weapon)
 	return ((p2weapon == 'rock' and p1weapon == 'scissors') or (p2weapon == 'paper' and p1weapon == 'rock') or (p2weapon == 'scissors' and p1weapon == 'paper'))
 end
 
+# DETERMINES IF PLAYERS TIE
 def tied(p1weapon, p2weapon)
 	return ((p1weapon == 'rock' and p2weapon == 'rock') or (p1weapon == 'paper' and p2weapon == 'paper') or (p1weapon == 'scissors' and p2weapon == 'scissors'))
 end
