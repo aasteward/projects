@@ -1,0 +1,41 @@
+body {
+    background-color: #76E3FF;
+    font-family: "Verdana", sans-serif;
+    
+}
+h1 {
+    text-align: center;
+    font-size: 2em
+}
+h2 {
+    position: relative;
+    left: 12px;
+    font-size: 1.5em
+}
+h3 {
+    text-decoration: underline;
+    font-size: 1em
+}
+p {
+    color: #59606D;
+    position:relative;
+    left: 8px;
+}
+ul {
+    position:relative;
+    left: 40px;
+}
+a {
+    color: #B31313;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+img {
+    border-color: #FF4000;
+    border-width: 8px;
+}
+
+current {
+    color: #888888;
+}
