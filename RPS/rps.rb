@@ -12,8 +12,7 @@ end
 # CHECKS VALIDITY OF FIRST WEAPON. IF VALID, GETS SECOND WEAPON
 def initp1()
 	p1weapon = gets.chomp.downcase
-	realweap = checkweap(p1weapon)
-	if realweap == true
+	if checkweap(p1weapon)
 		puts "Player 2, choose a weapon."
 		initp2(p1weapon)
 	else
@@ -25,8 +24,7 @@ end
 # CHECKS VALIDITY OF SECOND WEAPON. IF VALID, CALCULATES RESULT
 def initp2(p1weapon)
 	p2weapon = gets.chomp.downcase
-	realweap = checkweap(p2weapon)
-	if realweap == true
+	if checkweap(p2weapon)
 		winner(p1weapon, p2weapon)
 	else
 		puts "That's not a valid weapon. Please choose 'rock', 'paper', or 'scissors'."
@@ -45,41 +43,42 @@ end
 
 # CALCULATES RESULT
 def winner(p1weapon, p2weapon)
-	if ((p1weapon == 'rock' and p2weapon == 'scissors') or (p1weapon == 'paper' and p2weapon == 'rock') or (p1weapon == 'scissors' and p2weapon == 'paper'))
+	if p1win(p1weapon, p2weapon) 
 		result = "Player 1 won!"
-		puts result
-		update(result)
-		return result
-	end
-	if ((p2weapon == 'rock' and p1weapon == 'scissors') or (p2weapon == 'paper' and p1weapon == 'rock') or (p2weapon == 'scissors' and p1weapon == 'paper'))
+	elsif p2win(p1weapon, p2weapon) 
 		result = "Player 2 won!"
-		puts result
-		update(result)
-		return result
-	end
-	if ((p1weapon == 'rock' and p2weapon == 'rock') or (p1weapon == 'paper' and p2weapon == 'paper') or (p1weapon == 'scissors' and p2weapon == 'scissors'))
+	elsif tied(p1weapon, p2weapon)
 		result = "Tie!"
-		puts result
-		update(result)
-		return result
 	end
+	declare(result)
 end
+
+def declare(result)
+	puts result
+	update(result)
+end
+
+def p1win(p1weapon, p2weapon)
+	return ((p1weapon == 'rock' and p2weapon == 'scissors') or (p1weapon == 'paper' and p2weapon == 'rock') or (p1weapon == 'scissors' and p2weapon == 'paper'))
+end
+
+def p2win(p1weapon, p2weapon)
+	return ((p2weapon == 'rock' and p1weapon == 'scissors') or (p2weapon == 'paper' and p1weapon == 'rock') or (p2weapon == 'scissors' and p1weapon == 'paper'))
+end
+
+def tied(p1weapon, p2weapon)
+	return ((p1weapon == 'rock' and p2weapon == 'rock') or (p1weapon == 'paper' and p2weapon == 'paper') or (p1weapon == 'scissors' and p2weapon == 'scissors'))
+end
+
 
 # UPDATES SCORES
 def update(result)
 	if (result == "Player 1 won!")
 		$p1score = $p1score + 1
-		scorekeep()
-		return $p1score
-	end
-	if (result == "Player 2 won!")
+	elsif (result == "Player 2 won!")
 		$p2score = $p2score + 1
-		scorekeep()
-		return $p2score
 	end
-	if (result == "Tie!")
-		scorekeep()
-	end
+	scorekeep()
 end
 
 # CHECKS IF EITHER PLAYER HAS WON THE SERIES
