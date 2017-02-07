@@ -2,7 +2,7 @@ window.addEventListener("load", function(){
 	var likes = document.getElementsByClassName("action--like");
 	var unlikes = document.getElementsByClassName("action--unlike");
 	var replies = document.getElementsByClassName("action--reply");
-	var commenter = document.getElementsByClassName("action--comment")[0]; // BROKEN
+	var commenter = document.getElementsByClassName("action--comment")[0];
 	var posts = document.getElementsByClassName("button");
 
 	likes[0].addEventListener("click", plike);
@@ -10,16 +10,19 @@ window.addEventListener("load", function(){
 	unlikes[0].style.display = "none";
 	commenter.addEventListener("click", comment);
 
+	// CREATES EVENT TRIGGERS ON 'LIKE' AND 'UNLIKE' ANCHORS
 	for (var i = 1; i < unlikes.length; i++){
 		unlikes[i].style.display = "none";
 		likes[i].addEventListener("click", like);
 		unlikes[i].addEventListener("click", unlike);
 	}
 
+	// CREATES EVENT TRIGGERS ON 'REPLY' ANCHORS
 	for (var x = 0; x < replies.length; x++){
 		replies[x].addEventListener("click", showReplies);
 	}
 
+	// CREATES EVENT TRIGGERS ON 'SUBMIT' BUTTONS
 	for (var b = 0; b < posts.length; b++){
 		posts[b].addEventListener("click", emptyComment);
 	}
@@ -45,10 +48,12 @@ window.addEventListener("load", function(){
 	}
 
 	function like(){
-		// WHEN 'LIKE' CLICKED, HIDES 'LIKE' ANCHOR, INCREMENTS SIBLING 'LIKE_COUNT' SPAN, AND REVEALS SIBLING 'UNLIKE' ANCHOR.
+		// HIDES 'LIKE' ANCHOR
 		this.style.display = "none";
+		// REVEALS SIBLING 'UNLIKE' ANCHOR
 		this.nextElementSibling.style.display = "inline-block";
 		var count = this.parentElement.getElementsByClassName('like_count')[0].innerText;
+		// INCREMENTS SIBLING 'LIKE_COUNT' SPAN
 		countarr = count.split(" ");
 		countarr[0] = parseInt(countarr[0]) + 1;
 		count = countarr.join(" ");
@@ -56,19 +61,22 @@ window.addEventListener("load", function(){
 	}
 
 	function unlike(){
-		// WHEN 'UNLIKE' CLICKED, HIDES 'UNLIKE' ANCHOR, DECREMENTS SIBLING 'LIKE_COUNT' SPAN, AND REVEALS SIBLING 'LIKE' ANCHOR.
+		// HIDES 'UNLIKE' ANCHOR
 		this.style.display = "none";
+		// REVEALS SIBLING 'LIKE' ANCHOR
 		this.previousElementSibling.style.display = "inline-block";
 		var count = this.parentElement.getElementsByClassName('like_count')[0].innerText;
+		// DECREMENTS SIBLING 'LIKE_COUNT' SPAN
 		countarr = count.split(" ");
 		countarr[0] = parseInt(countarr[0]) - 1;
 		count = countarr.join(" ");
 		this.parentElement.getElementsByClassName('like_count')[0].innerText = count;
 	}
 
-	function comment(){ // BROKEN
+	function comment(){ // WORKS BUT GIVES ERROR
 		// WHEN 'COMMENT' IS CLICKED, FOCUSES CURSOR IN TEXT BOX.
-		document.getElementById("44").focus();
+		box = this.parentElement.parentElement.parentElement.childNodes[3].childNodes[5].childNodes[3].childNodes[1].childNodes[1].focus();
+		box.focus();
 	}
 
 	function showReplies(){
@@ -82,7 +90,7 @@ window.addEventListener("load", function(){
 		}
 	}
 
-	function emptyComment(){
+	function emptyComment(){ //BROKEN ??
 		// ALERTS USER WHEN AN EMPTY COMMENT/REPLY IS SUBMITTED.
 		post = this.previousElementSibling.innerText;
 		if (post = ""){
