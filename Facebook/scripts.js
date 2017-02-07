@@ -18,8 +18,8 @@ window.addEventListener("load", function(){
 	}
 
 	// CREATES EVENT TRIGGERS ON 'REPLY' ANCHORS
-	for (var x = 0; x < replies.length; x++){
-		replies[x].addEventListener("click", showReplies);
+	for (var r = 0; r < replies.length; r++){
+		replies[r].addEventListener("click", showReplies);
 	}
 
 	// CREATES EVENT TRIGGERS ON 'SUBMIT' BUTTONS
@@ -31,9 +31,9 @@ window.addEventListener("load", function(){
 		this.style.display = "none";
 		this.nextElementSibling.style.display = "inline-block";
 		var count = this.closest("post").next(".like_count")[0].innerText;
-		countarr = count.split(" ");
-		countarr[0] = parseInt(countarr[0]) + 1;
-		count = countarr.join(" ");
+		count = count.split(" ");
+		count[0] = parseInt(count[0]) + 1;
+		count = count.join(" ");
 		this.closest("post").next(".like_count")[0].innerText = count;
 	}
 
@@ -41,9 +41,9 @@ window.addEventListener("load", function(){
 		this.style.display = "none";
 		this.previousElementSibling.style.display = "inline-block";
 		var count = this.closest("post").next(".like_count")[0].innerText;
-		countarr = count.split(" ");
-		countarr[0] = parseInt(countarr[0]) - 1;
-		count = countarr.join(" ");
+		count = count.split(" ");
+		count[0] = parseInt(count[0]) - 1;
+		count = count.join(" ");
 		this.closest("post").next(".like_count")[0].innerText = count;
 	}
 
@@ -73,10 +73,9 @@ window.addEventListener("load", function(){
 		this.parentElement.getElementsByClassName('like_count')[0].innerText = count;
 	}
 
-	function comment(){ // WORKS BUT GIVES ERROR
+	function comment(){
 		// WHEN 'COMMENT' IS CLICKED, FOCUSES CURSOR IN TEXT BOX.
-		box = this.parentElement.parentElement.parentElement.childNodes[3].childNodes[5].childNodes[3].childNodes[1].childNodes[1].focus();
-		box.focus();
+		document.getElementsByClassName("commentbox")[0].focus();
 	}
 
 	function showReplies(){
@@ -90,11 +89,11 @@ window.addEventListener("load", function(){
 		}
 	}
 
-	function emptyComment(){ //BROKEN ??
-		// ALERTS USER WHEN AN EMPTY COMMENT/REPLY IS SUBMITTED.
-		post = this.previousElementSibling.innerText;
-		if (post = ""){
-			alert("There's nothing to say!")
-		}
-	}
+	function emptyComment() {
+        current_textbox = this.parentElement.childNodes[1].value;
+        if (!current_textbox.match(/\S/)) {
+            alert("There's nothing to say!");
+        }
+    }
+
 });
