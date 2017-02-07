@@ -18,33 +18,34 @@ window.addEventListener("load", function(){
 	}
 
 	// CREATES EVENT TRIGGERS ON 'REPLY' ANCHORS
-	for (var r = 0; r < replies.length; r++){
-		replies[r].addEventListener("click", showReplies);
+	for (var i = 0; i < replies.length; i++){
+		replies[i].addEventListener("click", showReplies);
 	}
 
 	// CREATES EVENT TRIGGERS ON 'SUBMIT' BUTTONS
-	for (var b = 0; b < posts.length; b++){
-		posts[b].addEventListener("click", emptyComment);
+	for (var i = 0; i < posts.length; i++){
+		posts[i].addEventListener("click", emptyComment);
+		posts[i].addEventListener("click", postComment);
 	}
 
 	function plike(){ //BROKEN ??
 		this.style.display = "none";
 		this.nextElementSibling.style.display = "inline-block";
-		var count = this.closest("post").next(".like_count")[0].innerText;
+		var count = this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText;
 		count = count.split(" ");
 		count[0] = parseInt(count[0]) + 1;
 		count = count.join(" ");
-		this.closest("post").next(".like_count")[0].innerText = count;
+		this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText = count;
 	}
 
 	function punlike(){ // BROKEN ??
 		this.style.display = "none";
 		this.previousElementSibling.style.display = "inline-block";
-		var count = this.closest("post").next(".like_count")[0].innerText;
+		var count = this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText;
 		count = count.split(" ");
 		count[0] = parseInt(count[0]) - 1;
 		count = count.join(" ");
-		this.closest("post").next(".like_count")[0].innerText = count;
+		this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText = count;
 	}
 
 	function like(){
@@ -90,10 +91,16 @@ window.addEventListener("load", function(){
 	}
 
 	function emptyComment() {
+		// ALERTS USER WHEN POSTING AN EMPTY COMMENT
         current_textbox = this.parentElement.childNodes[1].value;
         if (!current_textbox.match(/\S/)) {
             alert("There's nothing to say!");
         }
+    }
+
+    function postComment(){
+    	// CLONES EMPTY POST DIV AND APPENDS TO CONVERSATION
+
     }
 
 });
