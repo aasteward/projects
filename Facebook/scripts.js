@@ -1,14 +1,21 @@
 window.addEventListener("load", function(){
+	// PREPARES VARIABLES FOR TRIGGER LOOPS
 	var likes = document.getElementsByClassName("action--like");
 	var unlikes = document.getElementsByClassName("action--unlike");
 	var replies = document.getElementsByClassName("action--reply");
 	var commenter = document.getElementsByClassName("action--comment")[0];
 	var posts = document.getElementsByClassName("button");
+	var sharer = document.getElementsByClassName("action--share")[0];
+	var viewer = document.getElementsByClassName("profile");
+	var bigX = document.getElementsByClassName("modal__close")[0];
 
+	// SETS INDIVIDUAL TRIGGERS AND HIDES ALL 'UNLIKE' ANCHORS
 	likes[0].addEventListener("click", plike);
 	unlikes[0].addEventListener("click", punlike);
+	commenter.addEventListener("click", postComment);
+	sharer.addEventListener("click", sharePost);
+	bigX.addEventListener("click", closeModal);
 	unlikes[0].style.display = "none";
-	commenter.addEventListener("click", comment);
 
 	// CREATES EVENT TRIGGERS ON 'LIKE' AND 'UNLIKE' ANCHORS
 	for (var i = 1; i < unlikes.length; i++){
@@ -28,7 +35,13 @@ window.addEventListener("load", function(){
 		posts[i].addEventListener("click", postComment);
 	}
 
-	function plike(){ //BROKEN ??
+	// CREATES EVENT TRIGGERS ON PROFILE NAMES
+	for (var i = 0; i < viewer.length; i++){
+		viewer[i].addEventListener("click", viewProfile);
+	}
+
+	function plike(){
+		// UPDATES LIKE COUNT FOR PARENT COMMENT
 		this.style.display = "none";
 		this.nextElementSibling.style.display = "inline-block";
 		var count = this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText;
@@ -38,7 +51,8 @@ window.addEventListener("load", function(){
 		this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText = count;
 	}
 
-	function punlike(){ // BROKEN ??
+	function punlike(){
+		// UPDATES LIKE COUNT FOR PARENT COMMENT
 		this.style.display = "none";
 		this.previousElementSibling.style.display = "inline-block";
 		var count = this.parentElement.parentElement.parentElement.getElementsByClassName("like_count")[0].innerText;
@@ -90,7 +104,7 @@ window.addEventListener("load", function(){
 		}
 	}
 
-	function emptyComment() {
+	function emptyComment(){
 		// ALERTS USER WHEN POSTING AN EMPTY COMMENT
         current_textbox = this.parentElement.childNodes[1].value;
         if (!current_textbox.match(/\S/)) {
@@ -101,6 +115,28 @@ window.addEventListener("load", function(){
     function postComment(){
     	// CLONES EMPTY POST DIV AND APPENDS TO CONVERSATION
 
+    }
+
+    function viewProfile(){
+    	// REVEALS MODAL WTIH PROFILE INFO DISPLAYED
+    	document.getElementsByClassName("modal")[0].style.display = "block"
+    	document.getElementsByClassName("modal__title")[0].innerText = this.innerText
+    	document.getElementsByClassName("modal__body")[0].innerText = "55 Friends" 
+    }
+
+    function sharePost(){
+    	// REVEALS MODAL WITH POST'S USER AND CONTENT DISPLAYED
+    	content = this.parentElement.parentElement.childNodes[3].innerText
+    	poster = this.parentElement.parentElement.childNodes[1].childNodes[3].childNodes[1].innerText
+    	document.getElementsByClassName("modal")[0].style.display = "block"
+    	document.getElementsByClassName("modal__title")[0].innerText = "Share " + poster + "'s post:"
+    	document.getElementsByClassName("modal__body")[0].innerText = content
+    	
+    }
+
+    function closeModal(){
+    	// CLOSES MODAL WINDOW WHEN 'X' OR BACKGROUND IS CLICKED
+    	document.getElementsByClassName("modal")[0].style.display = "none"
     }
 
 });
