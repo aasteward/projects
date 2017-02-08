@@ -1,15 +1,25 @@
-<br>
-<h2>Please log in.</h2>
-<br>
-<form action="/login" method="post">
-	<p><input type="text" placeholder="username" name="user"></p>
-	<p><input type="password" placeholer="password" name="pass"></p>
-	<p><button type="submit" name="login">Log In</button></p>
-</form>
-<br>
-<hr>
-<br>
-<h3>Click to continue without logging in.</h3>
-<form action="/index">
-	<p><button type="submit" name="continue">Continue</button></p>
-</form>
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<head>
+  <title>Log In</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+	<br>
+	<h2>Please log in.</h2>
+	<br>
+	<form action="/login" method="post">
+		<p><input type="text" placeholder="username" name="user"></p>
+		<p><input type="password" placeholer="password" name="pass"></p>
+		<p><button type="submit" name="login">Log In</button></p>
+	</form>
+	<br>
+	<hr>
+	<br>
+	<h3>Click to continue without logging in.</h3>
+	<form action="/index">
+		<p><button type="submit" name="continue">Continue</button></p>
+	</form>
+</body>

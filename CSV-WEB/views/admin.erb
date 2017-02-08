@@ -1,16 +1,29 @@
-<h3>Enter new transaction information</h3>
-<br>
-<form action="/submit" method="post">
-    <p><input type="text" placeholder="account" name="account"></p>
-    <p><input type="text" placeholder="date" name="date"></p>
-    <p><input type="text" placeholder="payee" name="payee"></p>
-    <p><input type="text" placeholder="category" name="category"></p>
-    <p><input type="text" placeholder="ouflow" name="outflow"></p>
-    <p><input type="text" placeholder="inflow" name="inflow"></p>
-    <p><input type="submit"></p> <!-- SUBMIT BUTTON SHOULD RUN 'WRITE_INFO' -->
-</form>
-<br>
-<hr>
-<form action="/logout" method="post">
-	<p><button type="submit" name="logout">Log Out</button></p>
-</form>
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8">
+<head>
+  <title>Admin</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+	<h3>Enter new transaction information</h3>
+	<br>
+	<form action="/submit" method="post">
+	    <p><input type="text" placeholder="account" name="account"></p>
+	    <p><input type="text" placeholder="date" name="date"></p>
+	    <p><input type="text" placeholder="payee" name="payee"></p>
+	    <p><input type="text" placeholder="category" name="category"></p>
+	    <p><input type="text" placeholder="ouflow" name="outflow"></p>
+	    <p><input type="text" placeholder="inflow" name="inflow"></p>
+	    <p><input type="submit"></p> <!-- SUBMIT BUTTON SHOULD RUN 'WRITE_INFO' -->
+	</form>
+	<form action="/index">
+		<p><button type="submit" name="home">Home</button></p>
+	</form>
+	<br>
+	<hr>
+	<form action="/logout" method="post">
+		<p><button type="submit" name="logout">Log Out</button></p>
+	</form>
+</body>
