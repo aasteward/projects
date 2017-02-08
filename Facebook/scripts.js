@@ -13,7 +13,7 @@ window.addEventListener("load", function(){
 	var bigX = document.getElementsByClassName("modal__close")[0];
 	var modalBG = document.getElementsByClassName("modal")[0];
 
-	// SETS INDIVIDUAL TRIGGERS AND HIDES ALL 'UNLIKE' ANCHORS
+	// SETS INDIVIDUAL TRIGGERS AND HIDES FIRST 'UNLIKE' ANCHOR
 	likes[0].addEventListener("click", plike);
 	unlikes[0].addEventListener("click", punlike);
 	commenter.addEventListener("click", comment);
@@ -22,7 +22,7 @@ window.addEventListener("load", function(){
 	modalBG.addEventListener("click", ignoreModal);
 	unlikes[0].style.display = "none";
 
-	// CREATES EVENT TRIGGERS ON 'LIKE' AND 'UNLIKE' ANCHORS
+	// CREATES EVENT TRIGGERS ON 'LIKE' AND 'UNLIKE' ANCHORS, AND HIDES 'UNLIKE' ANCHORS
 	for (var i = 1; i < unlikes.length; i++){
 		unlikes[i].style.display = "none";
 		likes[i].addEventListener("click", like);
@@ -98,7 +98,7 @@ window.addEventListener("load", function(){
 	}
 
 	function showReplies(){
-		// WHEN 'REPLY' IS CLICKED, SHOULD SHOW/HIDE MODAL OF REPLY THREAD.
+		// WHEN 'REPLY' IS CLICKED, SHOULD SHOW/HIDE REPLY THREAD.
 		var reply_area = this.parentElement.parentElement.getElementsByClassName('replies')[0]
 		if (reply_area.style.display == "none"){
 			reply_area.style.display = "block";
@@ -109,7 +109,7 @@ window.addEventListener("load", function(){
 	}
 
     function postComment(e){
-    	// ALERTS USER WHEN POSTING AND EMPTY COMMENT
+    	// ALERTS USER WHEN POSTING AN EMPTY COMMENT
     	currentText = this.parentElement.childNodes[1].value;
     	if (currentText == "") {
             alert("There's nothing to say!");
