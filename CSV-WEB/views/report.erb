@@ -13,32 +13,32 @@
   <br>
   <!-- BUILDS DISPLAY FOR SINGLE ACCOUNT -->
   <h1><%= @name %></h1> 
-  <h2>$<%= @account.pretty_tally %></h2>
+  <h2>Account Total: $<%= @account.pretty_tally %></h2>
   <!-- BLOCK OF TRANSACITON INFORMATION BOXES -->
   <div <%= if(session[:message] == "false") then ('hidden') end %> >
   <!-- TRANSACITON BOXES HIDDEN IF NOT LOGGED IN -->
   <hr>
-    <form action="/submit" method="post">
-      <input type="hidden" name="account" value="<%= @name %>">
-      <p><input type="text" placeholder="date" name="date"></p>
-      <p><input type="text" placeholder="payee" name="payee"></p>
-      <p><input type="text" placeholder="category" name="category"></p>
-      <p><input type="text" placeholder="ouflow" name="outflow"></p>
-      <p><input type="text" placeholder="inflow" name="inflow"></p>
+    <form action="/submit" method="post" style="display: inline">
+      <p><input type="hidden" name="account" value="<%= @name %>">
+      <input type="text" placeholder="date" name="date">
+      <input type="text" placeholder="payee" name="payee">
+      <input type="text" placeholder="category" name="category">
+      <input type="text" placeholder="ouflow" name="outflow">
+      <input type="text" placeholder="inflow" name="inflow"></p>
       <p><button type="submit">Add Transaction</button></p> <!-- SUBMIT BUTTON SHOULD RUN 'WRITE_INFO' -->
     </form>
   </div>
   <hr>
   <table>
     <tr>
-      <th>Category</th>
-      <th>Amount</th>
+      <th align="left" style="padding-right: 180px">Category</th>
+      <th style="padding-right: 60px">Amount</th>
       <th>Average Transaction</th>
     </tr>
     <!-- LOOP TO GENERATE ROWS PER CATEGORY -->
     <% @account.categories.each do |category, t| %>
         <tr>
-          <td><%= category %></td>
+          <td style="text-indent: 18px"><%= category %></td>
           <td>$<%= t.pretty_tally %></td>
           <td>$<%= t.pretty_avg_transaction %></td>
         </tr>

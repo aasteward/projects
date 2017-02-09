@@ -6,6 +6,7 @@ body {
 	background-color: #cceeee;
 	font-family: Helvetica, sans-serif;
 	color: #020940;
+	margin-top: 55px;
 }
 header {
 	position: fixed;
@@ -38,16 +39,11 @@ a {
 
 }
 h1 {
-	
+	margin: 0px;
+	margin-left: 20px;
 }
 h2 {
-	
-}
-h3 {
-	
-}
-p {
-	
+	margin-left: 38px;
 }
 ul {
 
@@ -58,22 +54,16 @@ li {
 hr {
 	border: 1px solid #020940;
 }
-form {
-
-}
-button {
-
-}
 table {
 	font-family: Courier, monospace;
+	margin-left: 20px;
 }
 th {
 	font-family: Courier, monospace;
 	font-weight: bolder;
-}
-tr {
-
+	text-align: left;
 }
 td {
 	font-family: Courier, monospace;
+	text-indent: 18px;
 }

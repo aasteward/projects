@@ -15,12 +15,12 @@
   <% @all_accounts.each do |account| %>
     <br>
     <h1><%= @names[i] %></h1> 
-    <h2>$<%= account.pretty_tally %></h2>
+    <h2>Account Total: $<%= account.pretty_tally %></h2>
     <hr>
     <table>
       <tr>
-        <th>Category</th>
-        <th>Amount</th>
+        <th style="padding-right: 180px">Category</th>
+        <th style="padding-right: 60px">Amount</th>
         <th>Average Transaction</th>
       </tr>
       <!-- LOOP TO GENERATE ROW PER CATEGORY -->

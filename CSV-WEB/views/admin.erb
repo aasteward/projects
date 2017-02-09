@@ -10,15 +10,17 @@
 	<header>
     	<%= erb :navlinks %>
   	</header>
-	<h3>Enter new transaction information</h3>
-	<br>
-	<form action="/submit" method="post">
-	    <p><input type="text" placeholder="account" name="account"></p>
-	    <p><input type="text" placeholder="date" name="date"></p>
-	    <p><input type="text" placeholder="payee" name="payee"></p>
-	    <p><input type="text" placeholder="category" name="category"></p>
-	    <p><input type="text" placeholder="ouflow" name="outflow"></p>
-	    <p><input type="text" placeholder="inflow" name="inflow"></p>
-	    <p><button type="submit">Add Transaction</button></p> <!-- SUBMIT BUTTON SHOULD RUN 'WRITE_INFO' -->
-	</form>
+  	<center>
+		<h3>Enter new transaction information</h3>
+		<br>
+		<form action="/submit" method="post">
+		    <p><input type="text" placeholder="account" name="account"></p>
+		    <p><input type="text" placeholder="date" name="date"></p>
+		    <p><input type="text" placeholder="payee" name="payee"></p>
+		    <p><input type="text" placeholder="category" name="category"></p>
+		    <p><input type="text" placeholder="ouflow" name="outflow"></p>
+		    <p><input type="text" placeholder="inflow" name="inflow"></p>
+		    <p><button type="submit">Add Transaction</button></p> <!-- SUBMIT BUTTON SHOULD RUN 'WRITE_INFO' -->
+		</form>
+	</center>
 </body>
