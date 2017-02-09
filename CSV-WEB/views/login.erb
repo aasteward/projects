@@ -6,18 +6,23 @@
   <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
-<body>
+<body style="margin-top: 0px">
 	<br>
-	<h2 align="center">Please log in</h2>
+	<h3 align="center">Please log in</h3>
 	<br>
 	<form action="/login" method="post" autocomplete="false" align="center">
-		<p><input type="text" placeholder="username" name="user" align="center"></p>
-		<p><input type="password" placeholder="password" name="pass" align="center"></p>
-		<p><button type="submit" name="login" align="center">Log In</button></p>
+		<input type="text" placeholder="username" name="user" align="center">
+		<p></p>
+		<input type="password" placeholder="password" name="pass" align="center">
+		<p></p>
+		<br>
+		<button type="submit" name="login" align="center">Log In</button>
 	</form>
 	<br>
-	<h3 align="center">Click to continue without logging in.</h3>
+	<h4 align="center">Click to continue without logging in.</h4>
 	<form action="/index" align="center">
-		<p><button type="submit" name="continue" align="center">Continue</button></p>
+		<button type="submit" name="continue" align="center">Continue</button>
+		<br>
 	</form>
+	<%= erb :footer %>
 </body>

@@ -16,7 +16,7 @@
     <br>
     <h1><%= @names[i] %></h1> 
     <h2>Account Total: $<%= account.pretty_tally %></h2>
-    <hr>
+    <br>
     <table>
       <tr>
         <th style="padding-right: 180px">Category</th>
@@ -32,7 +32,8 @@
         </tr>
       <% end %>
     </table>
-    <hr>
+    <br>
     <% i += 1 %>
   <% end %>
+  <%= erb :footer %>
 </body>

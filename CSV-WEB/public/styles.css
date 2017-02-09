@@ -35,8 +35,12 @@ input {
 	border-bottom-width: 2px;
 	border-bottom-color: #011040;
 }
+p {
+	margin: 0px;
+	font-size: 10px;
+}
 a {
-
+	text-decoration: none;
 }
 h1 {
 	margin: 0px;
@@ -45,11 +49,15 @@ h1 {
 h2 {
 	margin-left: 38px;
 }
+h3 {
+	font-size: 24px;
+}
 ul {
-
+	margin-left: 10%;
 }
 li {
-
+	left: 20%;
+	font-weight: bold;
 }
 hr {
 	border: 1px solid #020940;
