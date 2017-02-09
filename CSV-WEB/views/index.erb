@@ -7,6 +7,9 @@
 </head>
 
 <body>
+	<header>
+    	<%= erb :navlinks %>
+  	</header>
 	<br>
 	<h1>Which reports would you like to see?</h1>
 	<br>
@@ -17,7 +20,4 @@
 		</ul>
 	<br>
 	<hr>
-	<form action="/logout" method="post">
-		<p><button type="submit" name="logout">Log Out</button></p>
-	</form>
 </body>

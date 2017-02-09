@@ -1,0 +1,19 @@
+<div>
+	<div <%= if(session[:message] == "false") then ('hidden') end %> style="display: inline">
+		<form action="/admin" style="display: inline">
+			<button type="submit" name="admin">Add Transaction</button>
+		</form>
+	</div>
+
+	<form action="/index" style="display: inline">
+		<button type="submit" name="home">Home</button>
+	</form>
+
+	<form action="/full" style="display: inline">
+		<button type="submit" name="full">All Reports</button>
+	</form>
+
+	<form action="/logout" method="post" style="display: inline">
+		<button type="submit" name="logout"><%= if (session[:message] == "false") then ('Log In') else ('Log Out') end %></button>
+	</form>
+</div>

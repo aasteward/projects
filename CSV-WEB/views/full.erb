@@ -7,12 +7,15 @@
 </head>
 
 <body>
+  <header>
+    <%= erb :navlinks %>
+  </header>
   <% i = 0 %>
   <!-- LOOPS THROUGH EACH ACCOUNT NAME -->
   <% @all_accounts.each do |account| %>
     <br>
     <h1><%= @names[i] %></h1> 
-    <p>$<%= account.pretty_tally %></p>
+    <h2>$<%= account.pretty_tally %></h2>
     <hr>
     <table>
       <tr>
@@ -25,18 +28,11 @@
         <tr>
           <td><%= category %></td>
           <td>$<%= t.pretty_tally %></td>
-          <td align="right">$<%= t.pretty_avg_transaction %></td>
+          <td>$<%= t.pretty_avg_transaction %></td>
         </tr>
       <% end %>
     </table>
     <br>
     <% i += 1 %>
   <% end %>
-  <form action="/index">
-    <p><button type="submit" name="home">Home</button></p>
-  </form>
-  <hr>
-  <form action="/logout" method="post">
-    <p><button type="submit" name="logout">Log Out</button></p>
-  </form>
 </body>
