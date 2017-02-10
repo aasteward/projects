@@ -1,0 +1,35 @@
+body {
+	background-color: #202020;
+	color: #eeeeee;
+	font-family: "Menlo-Regular", "Consolas", sans-serif;
+	font-size: 12px;
+}
+header {
+	font-size: 12px;
+}
+footer {
+	font-size: 12px;
+	font-weight: normal;
+}
+.pink {
+	color: #fc0077;
+}
+.purple {
+	color: #9a60d0;
+}
+.blue {
+	color: #70e0f0;
+}
+.green {
+	color: #90fa30;
+}
+.yellow {
+	color: #f0fa80;
+}
+.grey {
+	/*text-decoration: line-through;*/
+	color: #a0a0a0;
+}
+p {
+	margin: 2px;
+}
