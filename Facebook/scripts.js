@@ -119,15 +119,18 @@ window.addEventListener("load", function(){
     	else {
     		var clone = host.cloneNode(true);
 	    	clone.style.display = "block";
-	    	// clone.childNodes[1].style.display = "inline";
-	    	// clone.childNodes[2].style.display = "inline"; // << THIS BREAKS THE PREVENTDEFAULT
+
+    		// ATTEMPTING TO CORRECTLY FORMAT NEW COMMENT
+	    	clone.childNodes[1].style.display = "inline";
+	    	// clone.childNodes[2].style.display = "inline"; // << THIS BREAKS THE PREVENTDEFAULT ??
+	    	clone.childNodes[0].textContent = "";
 	    	clone.childNodes[2].textContent = "";
 	    	clone.childNodes[3].style.display = "inline";
 
-	    	// POPULATE DATA INTO NEW POST
+	    	// POPULATE DATA INTO NEW POST TRYING TO MAINTAIN COMMENT FORMATTING
 	    	clone.childNodes[3].childNodes[1].textContent = "Sumeet";
 	    	clone.childNodes[3].childNodes[2].textContent = "\n\t" + currentText + "\n\t\n\t";
-	    	clone.childNodes[3].childNodes[3].childNodes[8].textContent = "\n\t\t" + "Right now." + "\n\t";
+	    	clone.childNodes[3].childNodes[3].childNodes[8].textContent = "\n\t\t" + "Right now";
 
 	    	if (this.classList.contains("bigtalk")){
 	    		var commentCount = this.parentElement.parentElement.parentElement.parentElement.childNodes[1].childNodes[3].innerText;
@@ -135,25 +138,35 @@ window.addEventListener("load", function(){
 	    		replied.appendChild(clone);
 	    		this.parentElement.childNodes[1].value = ""
 
-	    		event.preventDefault();
+	    		// UPDATE REPLY COUNTER
+		    	newCount = commentCount.split(" ");
+		    	newCount[0] = parseInt(newCount[0]) + 1;
+		    	newCount = newCount.join(" ");
+		    	this.parentElement.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[1].childNodes[3].innerText = newCount;
+
+	    		// event.preventDefault();
 	    	}
 	    	else {
-	    		var commentCount = this.parentElement.parentElement.parentElement.parentElement.parentElement.childNodes[1].childNodes[2].innerText;
+	    		var commentCount = this.parentElement.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[5].innerText;
 	    		var replied = this.parentElement.parentElement.parentElement.parentElement;
-	    		replied.insertBefore(clone, replied.childNodes[-2]);
+	    		replied.insertBefore(clone, replied.lastElementChild);
 	    		this.parentElement.childNodes[1].value = ""
 
-	    		event.preventDefault();
-	    	}
-	    	// UPDATE REPLY COUNTER
-	    	newCount = commentCount.split(" ");
-	    	newCount[0] = parseInt(newCount[0]) + 1;
-	    	newCount = newCount.join(" ");
-	    	this.parentElement.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[1].childNodes[3].innerText = newCount;
-	    	
-	    	event.preventDefault();
-	    }
+	    		// UPDATE REPLY COUNTER
+		    	if (commentCount == "Reply") {
+		    		newCount = "0 Replies"
+		    	}
+	    		else {
+	    			newCount = commentCount.split(" ");
+	    		}
+		    	newCount[0] = parseInt(newCount[0]) + 1;
+		    	newCount = newCount.join(" ");
+		    	this.parentElement.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[5].innerText = newCount;
 
+	    		// event.preventDefault();
+	    	}
+	    	// event.preventDefault();
+	    }
 	    event.preventDefault();
     }
 
