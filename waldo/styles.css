@@ -9,13 +9,12 @@
 }
 .modal__content{
   width: 160px;
-  height: 45px;
+  height: 48px;
   position: fixed;
   z-index: 9999;
   left: 50%;
   top: 50%;
-  margin-left: -300px;
-  margin-top: -200px;
+  transform: translate(-50%, -50%);
   background: #fff;
   border: 1px solid #ccc;
   padding: 30px;
@@ -24,6 +23,5 @@
   float: right;
   text-transform: uppercase;
   font-weight: bold;
-  /*border: 1px solid #000;*/
   padding: 3px 3px;
 }
