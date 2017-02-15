@@ -47,11 +47,19 @@ function victory(e){
 		document.getElementsByClassName("modal")[0].style.display = "block";
 		document.getElementsByClassName("modal__title")[0].innerText = "Good Job!";
 		document.getElementsByClassName("modal__body")[0].innerText = "\nYou found Waldo in " + running_time + " seconds!\nPlease enter your name:";
+		// document.getElementsByClassName("username")[0].style.display = "block";
+		document.getElementById("score_button").style.display = "block";
 		stopTime();
-	// } else {
-	// 	document.getElementsByClassName("modal")[0].style.display = "block";
-	// 	document.getElementsByClassName("modal__title")[0].innerText = "Oops!";
-	// 	document.getElementsByClassName("modal__body")[0].innerText = "Keep looking!";
+	} else {
+		document.getElementsByClassName("modal")[0].style.display = "block";
+		document.getElementsByClassName("modal__title")[0].innerText = "Oops!";
+		document.getElementsByClassName("modal__body")[0].innerText = "\nKeep looking!";
+		// document.getElementsByClassName("username")[0].style.display = "none";
+		document.getElementById("score_button").style.display = "none";
+		setTimeout(resetModal, 1600);
+		function resetModal() {
+			document.getElementsByClassName("modal")[0].style.display = "none";
+		}
 	}
 }
 
