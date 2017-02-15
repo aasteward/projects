@@ -8,8 +8,8 @@
   left: 0;
 }
 .modal__content{
-  width: 160px;
-  height: 48px;
+  width: 320px;
+  height: 100px;
   position: fixed;
   z-index: 9999;
   left: 50%;
