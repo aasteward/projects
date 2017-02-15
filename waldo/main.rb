@@ -2,7 +2,7 @@ require 'sinatra'
 require 'CSV'
 require 'JSON'
 require 'pry'
-require '/functions.rb'
+require_relative './functions.rb'
 
 enable :sessions
 
@@ -13,6 +13,10 @@ end
 get("/check") do
 	result = found(params)
 	result = result.to_s
+	if (result == "true")
+		info = File.open("./public/scores.csv", "a")
+		info.print # TIME HERE
+		info.close
+	end
 	return result
 end
-

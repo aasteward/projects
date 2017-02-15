@@ -1,5 +1,4 @@
 window.addEventListener("load", function() {
-
 	window.addEventListener("click", pictureClicked);
 
     // ADDS TRIGGER TO MODAL 'X' AND FUNCTION TO CLOSE MODAL WHEN 'X' IS CLICKED
@@ -9,7 +8,7 @@ window.addEventListener("load", function() {
     	document.getElementsByClassName("modal")[0].style.display = "none";
     }
 
-    // ADDS TRIGGER TO MODAL BACKGROUND AND FUNCTION TO CLOSE MODAL WHEN BAKCGROUND IS CLICKED
+    // ADDS TRIGGER TO MODAL BACKGROUND AND FUNCTION TO CLOSE MODAL WHEN BACKGROUND IS CLICKED
 	var modalBG = document.getElementsByClassName("modal")[0];
 	modalBG.addEventListener("click", ignoreModal);
     function ignoreModal(e){
@@ -17,31 +16,51 @@ window.addEventListener("load", function() {
     		document.getElementsByClassName("modal")[0].style.display = "none";
     	}
     }
-
 });
 
-// 
+// GETS CLOCK START TIME
+var loadTime = new Date();
+loadTime = loadTime.getTime();
+
+// GETS COORDINATES OF CLICK
+var x = 0;
+var y = 0;
 function pictureClicked(e) {
 	x = e.offsetX;
 	y = e.offsetY;
 	clickSpot();
 }
 
-//
+// SENDS COORDINATES AS QUERY
 function clickSpot() {
 	var xhr = new XMLHttpRequest();
-	var query = "x=" + x + "?y=" + y;
+	var query = "x=" + x + "&y=" + y // TIME HERE;
 	xhr.open('GET', '/check?' + query);
 	xhr.setRequestHeader("Content-type", "x-www-form-urlencoded");
 	xhr.send();
+	xhr.addEventListener("load", victory);
 }
 
-//
-var running_time = "";
-function clock(){
-	var time = 0.0;
-	function count(t){
-
+// DISPLAYS MODAL WHEN WALDO IS FOUND
+function victory(e){
+	if (e.target.responseText == "true") {
+		document.getElementsByClassName("modal")[0].style.display = "block";
+		document.getElementsByClassName("modal__title")[0].innerText = "Good Job!";
+		document.getElementsByClassName("modal__body")[0].innerText = "You found Waldo! Please enter your name:";
+	// } else {
+	// 	document.getElementsByClassName("modal")[0].style.display = "block";
+	// 	document.getElementsByClassName("modal__title")[0].innerText = "Oops!";
+	// 	document.getElementsByClassName("modal__body")[0].innerText = "Keep looking!";
 	}
 }
-clock();
+
+// BUILDS AND STARTS CLOCK
+var running_time = 0.0;
+function timer(){
+	var date = new Date();
+	var time = date.getTime();
+	running_time = ((time - loadTime)/1000).toFixed(1);
+	document.getElementById("seconds").innerHTML = "Your Time: " + running_time;
+}
+var clock = setInterval(timer, 100);
+
