@@ -34,7 +34,7 @@ function pictureClicked(e) {
 // SENDS COORDINATES AS QUERY
 function clickSpot() {
 	var xhr = new XMLHttpRequest();
-	var query = "x=" + x + "&y=" + y // TIME HERE;
+	var query = "x=" + x + "&y=" + y + "&t=" + running_time;
 	xhr.open('GET', '/check?' + query);
 	xhr.setRequestHeader("Content-type", "x-www-form-urlencoded");
 	xhr.send();
@@ -46,7 +46,8 @@ function victory(e){
 	if (e.target.responseText == "true") {
 		document.getElementsByClassName("modal")[0].style.display = "block";
 		document.getElementsByClassName("modal__title")[0].innerText = "Good Job!";
-		document.getElementsByClassName("modal__body")[0].innerText = "You found Waldo! Please enter your name:";
+		document.getElementsByClassName("modal__body")[0].innerText = "\nYou found Waldo in " + running_time + " seconds!\nPlease enter your name:";
+		stopTime();
 	// } else {
 	// 	document.getElementsByClassName("modal")[0].style.display = "block";
 	// 	document.getElementsByClassName("modal__title")[0].innerText = "Oops!";
@@ -57,10 +58,15 @@ function victory(e){
 // BUILDS AND STARTS CLOCK
 var running_time = 0.0;
 function timer(){
-	var date = new Date();
-	var time = date.getTime();
+	var time = new Date();
+	time = time.getTime();
 	running_time = ((time - loadTime)/1000).toFixed(1);
 	document.getElementById("seconds").innerHTML = "Your Time: " + running_time;
 }
 var clock = setInterval(timer, 100);
+
+// STOPS CLOCK
+function stopTime(){
+	clearInterval(clock);
+}
 

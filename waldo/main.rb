@@ -15,7 +15,7 @@ get("/check") do
 	result = result.to_s
 	if (result == "true")
 		info = File.open("./public/scores.csv", "a")
-		info.print # TIME HERE
+		info.print params[:t]
 		info.close
 	end
 	return result
