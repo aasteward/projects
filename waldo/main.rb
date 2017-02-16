@@ -23,10 +23,8 @@ get("/score") do
 end
 
 get("/board") do
-	# scoreList = scoreboard
-	scoreboard
-	binding.pry
+	scoreList = scoreboard()
 	scoreList = scoreList.map{|k,v| "#{k}\s#{v}"}.join("\sSeconds\n")
-	scoreList = scoreList.to_s
+	scoreList = scoreList.to_s + " Seconds"
 	return scoreList
 end

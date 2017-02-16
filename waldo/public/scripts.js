@@ -19,7 +19,7 @@ window.addEventListener("load", function() {
 
     // ADDS TRIGGERS TO RESTART AND SCOREBOARD BUTTONS
     document.getElementById("restart").addEventListener("click", play_again);
-    document.getElementById("score_list").addEventListener("click", highScores);;
+    document.getElementById("score_list").addEventListener("click", highScores);
 });
 
 // GETS CLOCK START TIME
@@ -112,35 +112,15 @@ function highScores(e){
 	var scoreList = "";
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', '/board');
-	// xhr.onload(function(){
-	// 	scoreList = xhr.responseText;
-	// })
-	// xhr.send();
-	// xhr.addEventListener("load", function(){
-	// 	scoreList = xhr.responseText;
-	// 	document.getElementsByClassName("modal")[0].style.display = "block";
-	// 	document.getElementsByClassName("modal__content")[0].style.height = "260px";
-	// 	document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
-	// 	document.getElementsByClassName("modal__body")[0].innerText = scoreList;
-	// 	document.getElementsByClassName("username")[0].style.display = "none";
-	// 	document.getElementById("score_button").style.display = "none";
-	// })
-	var scoreList = xhr.responseText;
-	document.getElementsByClassName("modal")[0].style.display = "block";
-	document.getElementsByClassName("modal__content")[0].style.height = "260px";
-	document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
-	document.getElementsByClassName("modal__body")[0].innerText = scoreList;
-	document.getElementsByClassName("username")[0].style.display = "none";
-	document.getElementById("score_button").style.display = "none";
+	xhr.onload = function(){
+		scoreList = xhr.responseText;
+		document.getElementsByClassName("modal")[0].style.display = "block";
+		document.getElementsByClassName("modal__content")[0].style.height = "260px";
+		document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
+		document.getElementsByClassName("modal__body")[0].innerText = scoreList;
+		document.getElementsByClassName("username")[0].style.display = "none";
+		document.getElementById("score_button").style.display = "none";
+	}
+	xhr.send();
 	e.preventDefault();
 }
-
-// function scoreDisplay(e){
-// 	var scoreList = e.target.responseText;
-// 	document.getElementsByClassName("modal")[0].style.display = "block";
-// 	document.getElementsByClassName("modal__content")[0].style.height = "260px";
-// 	document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
-// 	document.getElementsByClassName("modal__body")[0].innerText = scoreList;
-// 	document.getElementsByClassName("username")[0].style.display = "none";
-// 	document.getElementById("score_button").style.display = "none";
-// }
