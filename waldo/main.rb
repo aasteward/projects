@@ -13,16 +13,20 @@ end
 get("/check") do
 	result = found(params)
 	result = result.to_s
-	# if (result == "true")
-	# 	info = File.open("./public/scores.csv", "a")
-	# 	info.print params[:n] + " " + params[:t] + " seconds\n"
-	# 	info.close
-	# end
 	return result
 end
 
 get("/score") do
 	info = File.open("./public/scores.csv", "a")
-	info.print params[:n] + " " + params[:t] + " seconds\n"
+	info.print params[:n] + "," + params[:t] + ",seconds\n"
 	info.close
+end
+
+get("/board") do
+	# scoreList = scoreboard
+	scoreboard
+	binding.pry
+	scoreList = scoreList.map{|k,v| "#{k}\s#{v}"}.join("\sSeconds\n")
+	scoreList = scoreList.to_s
+	return scoreList
 end

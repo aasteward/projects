@@ -22,3 +22,18 @@ def found(params)
 	return found_him
 	# return found_her # ADDITIONAL FUNCTIONALITY FOR WANDA?
 end
+
+def scoreboard()
+	topTen = {}
+	CSV.foreach("./public/scores.csv", {headers: true}) do |row|
+		playerName = row["name"].chomp
+		playerTime = row["time"].chomp
+		playerTime.to_f
+		topTen[playerName] = playerTime
+	end
+	binding.pry
+	topTen = topTen.sort_by(&:last)
+	topTen = topTen[0..9]
+	return topTen
+end
+

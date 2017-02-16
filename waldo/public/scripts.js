@@ -16,11 +16,22 @@ window.addEventListener("load", function() {
     		document.getElementsByClassName("modal")[0].style.display = "none";
     	}
     }
+
+    // ADDS TRIGGERS TO RESTART AND SCOREBOARD BUTTONS
+    document.getElementById("restart").addEventListener("click", play_again);
+    document.getElementById("score_list").addEventListener("click", highScores);;
 });
 
 // GETS CLOCK START TIME
 var loadTime = new Date();
 loadTime = loadTime.getTime();
+
+// STARTS CLOCK AGAIN FOR ANOTHER GAME
+function play_again(e){
+	loadTime = new Date();
+	loadTime = loadTime.getTime();
+	e.preventDefault();
+}
 
 // GETS COORDINATES OF CLICK
 var x = 0;
@@ -55,8 +66,8 @@ function victory(e){
 			name = document.getElementsByClassName("username")[0].value;
 			submit(name, running_time);
 			document.getElementsByClassName("modal")[0].style.display = "none";
+			document.getElementsByClassName("username")[0].value = "";
 		})
-		
 		stopTime();
 	} else {
 		document.getElementsByClassName("modal")[0].style.display = "block";
@@ -96,3 +107,40 @@ function stopTime(){
 	clearInterval(clock);
 }
 
+// DISPLAYS SCORES IN MODAL
+function highScores(e){
+	var scoreList = "";
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '/board');
+	// xhr.onload(function(){
+	// 	scoreList = xhr.responseText;
+	// })
+	// xhr.send();
+	// xhr.addEventListener("load", function(){
+	// 	scoreList = xhr.responseText;
+	// 	document.getElementsByClassName("modal")[0].style.display = "block";
+	// 	document.getElementsByClassName("modal__content")[0].style.height = "260px";
+	// 	document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
+	// 	document.getElementsByClassName("modal__body")[0].innerText = scoreList;
+	// 	document.getElementsByClassName("username")[0].style.display = "none";
+	// 	document.getElementById("score_button").style.display = "none";
+	// })
+	var scoreList = xhr.responseText;
+	document.getElementsByClassName("modal")[0].style.display = "block";
+	document.getElementsByClassName("modal__content")[0].style.height = "260px";
+	document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
+	document.getElementsByClassName("modal__body")[0].innerText = scoreList;
+	document.getElementsByClassName("username")[0].style.display = "none";
+	document.getElementById("score_button").style.display = "none";
+	e.preventDefault();
+}
+
+// function scoreDisplay(e){
+// 	var scoreList = e.target.responseText;
+// 	document.getElementsByClassName("modal")[0].style.display = "block";
+// 	document.getElementsByClassName("modal__content")[0].style.height = "260px";
+// 	document.getElementsByClassName("modal__title")[0].innerText = "Top Scores:";
+// 	document.getElementsByClassName("modal__body")[0].innerText = scoreList;
+// 	document.getElementsByClassName("username")[0].style.display = "none";
+// 	document.getElementById("score_button").style.display = "none";
+// }
