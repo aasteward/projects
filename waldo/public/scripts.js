@@ -1,5 +1,5 @@
 window.addEventListener("load", function() {
-	window.addEventListener("click", pictureClicked);
+	document.getElementById("pic").addEventListener("click", pictureClicked);
 
     // ADDS TRIGGER TO MODAL 'X' AND FUNCTION TO CLOSE MODAL WHEN 'X' IS CLICKED
     var bigX = document.getElementsByClassName("modal__close")[0];
@@ -34,7 +34,7 @@ function pictureClicked(e) {
 // SENDS COORDINATES AS QUERY
 function clickSpot() {
 	var xhr = new XMLHttpRequest();
-	var query = "x=" + x + "&y=" + y + "&t=" + running_time;
+	var query = "x=" + x + "&y=" + y;
 	xhr.open('GET', '/check?' + query);
 	xhr.setRequestHeader("Content-type", "x-www-form-urlencoded");
 	xhr.send();
@@ -42,25 +42,43 @@ function clickSpot() {
 }
 
 // DISPLAYS MODAL WHEN WALDO IS FOUND
+var name = ""
 function victory(e){
 	if (e.target.responseText == "true") {
 		document.getElementsByClassName("modal")[0].style.display = "block";
+		document.getElementsByClassName("modal__content")[0].style.height = "120px";
 		document.getElementsByClassName("modal__title")[0].innerText = "Good Job!";
 		document.getElementsByClassName("modal__body")[0].innerText = "\nYou found Waldo in " + running_time + " seconds!\nPlease enter your name:";
-		// document.getElementsByClassName("username")[0].style.display = "block";
+		document.getElementsByClassName("username")[0].style.display = "block";
 		document.getElementById("score_button").style.display = "block";
+		document.getElementById("score_button").addEventListener("click", function(){
+			name = document.getElementsByClassName("username")[0].value;
+			submit(name, running_time);
+			document.getElementsByClassName("modal")[0].style.display = "none";
+		})
+		
 		stopTime();
 	} else {
 		document.getElementsByClassName("modal")[0].style.display = "block";
+		document.getElementsByClassName("modal__content")[0].style.height = "60px";
 		document.getElementsByClassName("modal__title")[0].innerText = "Oops!";
 		document.getElementsByClassName("modal__body")[0].innerText = "\nKeep looking!";
-		// document.getElementsByClassName("username")[0].style.display = "none";
+		document.getElementsByClassName("username")[0].style.display = "none";
 		document.getElementById("score_button").style.display = "none";
 		setTimeout(resetModal, 1600);
 		function resetModal() {
 			document.getElementsByClassName("modal")[0].style.display = "none";
 		}
 	}
+}
+
+// SUBMITS USERNAME AND SCORE
+function submit(name, time){
+	var xhr = new XMLHttpRequest();
+	var query = "t=" + running_time + "&n=" + name;
+	xhr.open('GET', '/score?' + query);
+	xhr.setRequestHeader("Content-type", "x-www-form-urlencoded");
+	xhr.send();
 }
 
 // BUILDS AND STARTS CLOCK
