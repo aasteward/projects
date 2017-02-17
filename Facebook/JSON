@@ -1,0 +1,222 @@
+{
+	"post": {
+		"author": {
+			"name": "Proud Parent",
+			"picture": "./images/user.png",
+			"friends": "55"
+		},
+		"data": {
+			"content": "Hello world!",
+			"likes": "28",
+			"replies": "3",
+			"time": "10:00am"
+		},
+		"comments": [{
+			"reply": {
+				"author": {
+					"name": "Oldest",
+					"picture": "./images/user.png",
+					"friends": "114"
+				},
+				"data": {
+					"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+					"likes": "2",
+					"replies": "4",
+					"time": "10:10am"
+				},
+				"comments": [{
+					"reply": {
+						"author": {
+							"name": "Youngest",
+							"picture": "./images/user.png",
+							"friends": "333"
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "0",
+							"time": "10:15am"
+						},
+						"comments": [{
+
+						}]
+					},
+					"reply": {
+						"author": {
+							"name": "Oldest",
+							"picture": "./images/user.png",
+							"friends": "114",
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "0",
+							"time": "10:25am",
+						},
+						"comments": [{
+
+						}]
+					},
+					"reply": {
+						"author": {
+							"name": "Youngest",
+							"picture": "./images/user.png",
+							"friends": "333"
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "0",
+							"time": "10:38am"
+						},
+						"comments": [{
+
+						}]
+					},
+					"reply": {
+						"author": {
+							"name": "Oldest",
+							"picture": "./images/user.png",
+							"friends": "114"
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "0",
+							"time": "10:43am"
+						},
+						"comments": [{
+
+						}]
+					}
+				}]
+			},
+			"reply": {
+				"author": {
+					"name": "Middle",
+					"picture": "./images/user.png",
+					"friends": "844"
+				},
+				"data": {
+					"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+					"likes": "2",
+					"replies": "0",
+					"time": "10:20am"
+				},
+				"comments": [{
+
+				}]
+			},
+			"reply": {
+				"author": {
+					"name": "Youngest",
+					"picture": "./images/user.png",
+					"friends": "333"
+				},
+				"data": {
+					"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+					"likes": "2",
+					"replies": "3",
+					"time": "10:30am"
+				},
+				"comments": [{
+					"reply": {
+						"author": {
+							"name": "Proud Parent",
+							"picture": "./images/user.png",
+							"friends": "55"
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "0",
+							"time": "10:35am"
+						},
+						"comments": [{
+
+						}]
+					},
+					"reply": {
+						"author": {
+							"name": "Middle",
+							"picture": "./images/user.png",
+							"friends": "844"
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "3",
+							"time": "10:35am"
+						},
+						"comments": [{
+							"reply": {
+								"author": {
+									"name": "Oldest",
+									"picture": "./images/user/png",
+									"friends": "114"
+								},
+								"data": {
+									"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+									"likes": "2",
+									"replies": "0",
+									"time": "10:53am"
+								},
+								"comments": [{
+
+								}]
+							},
+							"reply": {
+								"author": {
+									"name": "Middle",
+									"picture": "./images/user/png",
+									"friends": "844"
+								},
+								"data": {
+									"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+									"likes": "2",
+									"replies": "0",
+									"time": "11:03am"
+								},
+								"comments": [{
+
+								}]
+							},
+							"reply": {
+								"author": {
+									"name": "Youngest",
+									"picture": "./images/user/png",
+									"friends": "333"
+								},
+								"data": {
+									"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+									"likes": "2",
+									"replies": "0",
+									"time": "11:13am"
+								},
+								"comments": [{
+
+								}]
+							}
+						}]
+					},
+					"reply": {
+						"author": {
+							"name": "Oldest",
+							"picture": "./images/user.png",
+							"friends": "114"
+						},
+						"data": {
+							"content": "Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.",
+							"likes": "2",
+							"replies": "0",
+							"time": "10:55am"
+						},
+						"comments": [{
+
+						}]
+					}
+				}]
+			}
+		}]
+	}
+}
