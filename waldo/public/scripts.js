@@ -18,7 +18,7 @@ window.addEventListener("load", function() {
     }
 
     // ADDS TRIGGERS TO RESTART AND SCOREBOARD BUTTONS
-    document.getElementById("restart").addEventListener("click", play_again);
+    // document.getElementById("restart").addEventListener("click", play_again);
     document.getElementById("score_list").addEventListener("click", highScores);
 });
 
@@ -59,7 +59,7 @@ function victory(e){
 		document.getElementsByClassName("modal")[0].style.display = "block";
 		document.getElementsByClassName("modal__content")[0].style.height = "120px";
 		document.getElementsByClassName("modal__title")[0].innerText = "Good Job!";
-		document.getElementsByClassName("modal__body")[0].innerText = "\nYou found Waldo in " + running_time + " seconds!\nPlease enter your name:";
+		document.getElementsByClassName("modal__body")[0].innerText = "You found Waldo in " + running_time + " seconds!\nPlease enter your name:";
 		document.getElementsByClassName("username")[0].style.display = "block";
 		document.getElementById("score_button").style.display = "block";
 		document.getElementById("score_button").addEventListener("click", function(){
@@ -73,7 +73,7 @@ function victory(e){
 		document.getElementsByClassName("modal")[0].style.display = "block";
 		document.getElementsByClassName("modal__content")[0].style.height = "60px";
 		document.getElementsByClassName("modal__title")[0].innerText = "Oops!";
-		document.getElementsByClassName("modal__body")[0].innerText = "\nKeep looking!";
+		document.getElementsByClassName("modal__body")[0].innerText = "Keep looking!";
 		document.getElementsByClassName("username")[0].style.display = "none";
 		document.getElementById("score_button").style.display = "none";
 		setTimeout(resetModal, 1600);
