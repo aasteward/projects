@@ -1,0 +1,55 @@
+h1 {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(240, 240, 240);
+	margin: 0px;
+	padding: 20px;
+	padding-bottom: 0px;
+}
+h2 {
+	font-family: "Droid Sans", sans-serif;
+
+}
+h3 {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(65, 65, 65);
+	font-size: 16px;
+	padding: 0px;
+	padding-right: 20px;
+	margin-top: 25px;
+}
+h4 {
+	font-family: "Droid Sans", sans-serif;
+
+}
+h5 {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(140, 140, 140);
+	margin: 0px;
+	padding: 20px;
+	padding-top: 0px;
+}
+h6 {
+	font-family: "Droid Sans", sans-serif;
+}
+i {
+	color: rgb(180, 180, 180);
+	margin: 20px;
+	margin-right: 0px;
+}
+header {
+	margin: 0px;
+}
+body {
+	margin: 0px;
+}
+.block-top {
+	background-color: rgb(65, 65, 65);
+	font-family: "Open Sans", sans-serif;
+}
+.block-bott {
+	background-color: rgb(240, 240, 240);
+	font-family: "Open Sans", sans-serif;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
