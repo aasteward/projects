@@ -1,50 +1,11 @@
-h1 {
-	font-family: "Open Sans", sans-serif;
-	color: rgb(240, 240, 240);
-	margin: 0px;
-	padding: 20px;
-	padding-bottom: 0px;
-}
-h2 {
-	font-family: "Droid Sans", sans-serif;
-
-}
-h3 {
-	font-family: "Open Sans", sans-serif;
-	color: rgb(65, 65, 65);
-	font-size: 16px;
-	padding: 0px;
-	padding-right: 20px;
-	margin-top: 25px;
-}
-h4 {
-	font-family: "Droid Sans", sans-serif;
-
-}
-h5 {
-	font-family: "Open Sans", sans-serif;
-	color: rgb(140, 140, 140);
-	margin: 0px;
-	padding: 20px;
-	padding-top: 0px;
-}
-h6 {
-	font-family: "Droid Sans", sans-serif;
-}
-i {
-	color: rgb(180, 180, 180);
-	margin: 20px;
-	margin-right: 0px;
-}
 header {
-	margin: 0px;
-}
-body {
-	margin: 0px;
+	margin: -20px;
 }
 .block-top {
 	background-color: rgb(65, 65, 65);
 	font-family: "Open Sans", sans-serif;
+	padding-bottom: 20px;
+	margin: 0px;
 }
 .block-bott {
 	background-color: rgb(240, 240, 240);
@@ -52,4 +13,95 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
+	margin: 0px;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, .5);
+}
+.fa-twitter-square:hover {
+	color: rgb(30, 200, 255);
+}
+.fa-github-square:hover {
+	color: rgb(50, 50, 50);
+}
+.fa-rss-square:hover {
+	color: rgb(255, 100, 0);
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	color: rgb(135, 215, 70);
+}
+h1 {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(240, 240, 240);
+	margin: 0px;
+	padding: 20px;
+	padding-bottom: 0px;
+}
+.job-description {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(140, 140, 140);
+	margin: 0px;
+	padding: 20px;
+	padding-top: 0px;
+}
+i {
+	color: rgb(180, 180, 180);
+	margin: 20px;
+	margin-right: 0px;
+}
+.head-nav-div {
+	display: flex;
+}
+.head-nav {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(65, 65, 65);
+	font-size: 16px;
+	padding: 0px;
+	padding-right: 20px;
+	align-self: center;
+}
+body {
+	margin: 20px;
+}
+hr {
+	margin: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: rgb(180, 180, 180);
+}
+.page-name {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(180, 180, 180);
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+h2 {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(65, 65, 65);
+}
+.article-title {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(65, 65, 65);
+}
+.publish-year {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(65, 65, 65);
+}
+p.publish-date {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(180, 180, 180);
+}
+.article-sub-head {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(65, 65, 65);
+}
+p {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(140, 140, 140);
+}
+li {
+	font-family: "Droid Sans", sans-serif;
+	color: rgb(180, 180, 180);
 }
